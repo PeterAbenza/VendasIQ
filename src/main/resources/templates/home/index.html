@@ -25,31 +25,29 @@
     <!-- Dashboard Container -->
     <div class="container-fluid mt-4">
         <div class="row">
-            <!-- Search Bar -->
-            <div class="col-md-4">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
             <!-- User Profile and Notifications -->
-            <div class="col-md-8 text-right">
-                <button class="btn btn-outline-secondary mr-2">
+            <div class="col-md-12 notifications-search">
+                <button style="border: none;" class="btn btn-outline-secondary notification-button">
                     <i class="fas fa-bell"></i>
                 </button>
-                <img src="/img/profile.png" class="rounded-circle" alt="User Profile" width="40" height="40">
+                <!-- Search Bar -->
+                <div class="right-aligned-search">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" style="border: none;" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Sales Metrics -->
         <div class="row">
             <div class="col-md-3 mb-3">
-                <div class="card bg-dark text-white">
+                <div class="card text-white">
                     <div class="card-body">
                         <h5 class="card-title">Total Sales</h5>
                         <p class="card-text">$5k <span class="text-success">(+10% from yesterday)</span></p>
@@ -57,7 +55,7 @@
                 </div>
             </div>
             <div class="col-md-3 mb-3">
-                <div class="card bg-dark text-white">
+                <div class="card text-white">
                     <div class="card-body">
                         <h5 class="card-title">Total Orders</h5>
                         <p class="card-text">500 <span class="text-success">(+8% from yesterday)</span></p>
@@ -65,7 +63,7 @@
                 </div>
             </div>
             <div class="col-md-3 mb-3">
-                <div class="card bg-dark text-white">
+                <div class="card text-white">
                     <div class="card-body">
                         <h5 class="card-title">Products Sold</h5>
                         <p class="card-text">9 <span class="text-success">(+2% from yesterday)</span></p>
@@ -73,7 +71,7 @@
                 </div>
             </div>
             <div class="col-md-3 mb-3">
-                <div class="card bg-dark text-white">
+                <div class="card text-white">
                     <div class="card-body">
                         <h5 class="card-title">New Customers</h5>
                         <p class="card-text">12 <span class="text-success">(+3% from yesterday)</span></p>
@@ -85,7 +83,7 @@
         <!-- Levels Section -->
         <div class="row">
             <div class="col-md-6 mb-3">
-                <div class="card bg-dark text-white">
+                <div class="card text-white">
                     <div class="card-body">
                         <h5 class="card-title">Levels</h5>
                         <div class="progress mb-3">
@@ -100,7 +98,7 @@
 
             <!-- Top Products Section -->
             <div class="col-md-6 mb-3">
-                <div class="card bg-dark text-white">
+                <div class="card text-white">
                     <div class="card-body">
                         <h5 class="card-title">Top Products</h5>
                         <ul class="list-unstyled">
@@ -117,7 +115,7 @@
         <!-- Customer Fulfillment Section -->
         <div class="row">
             <div class="col-md-12 mb-3">
-                <div class="card bg-dark text-white">
+                <div class="card text-white">
                     <div class="card-body">
                         <h5 class="card-title">Customer Fulfillment</h5>
                         <p class="card-text">This Month: $4,785</p>
@@ -132,13 +130,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="/js/Menu.js"></script>
-    <script>
-		document.querySelector('.menu-toggle-button').addEventListener(
-				'click',
-				function() {
-					document.querySelector('.dashboard-container').classList
-							.toggle('menu-closed');
-				});
-	</script>
 </body>
 </html>

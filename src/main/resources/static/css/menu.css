@@ -154,7 +154,7 @@ body {
 
 
 /* Fechar sidebar em telas pequenas */
-@media ( max-width : 768px) {
+@media ( max-width : 1286px) {
 	.sidebar.closed {
 		width: 0%;
 	}
