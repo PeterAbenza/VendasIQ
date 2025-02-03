@@ -1,7 +1,35 @@
 @charset "UTF-8";
 
 .container-fluid {
-	margin-left: 14%;
+	margin-left: 12%;
+}
+
+.card, .card-body {
+	background-color:  rgb(33, 34, 45);
+	border-radius: 15px;
+}
+
+
+.right-aligned-search {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.notifications-search {
+	display: flex;
+	align-items: baseline;
+	justify-content: flex-end;
+	width: 100%;
+	
+}
+
+.form-control {
+	background-color:  rgb(33, 34, 45);
+	border: none;
+}
+	
+.notification-button {
+	margin-right: 20px;
 }
 
 .sidebar.closed ~ .container-fluid {
@@ -12,4 +40,18 @@
 	.sidebar.closed ~ .container-fluid {
 		margin-left: 0%;
 	}
+	.form-control {
+		display: none;
+	}
+	.right-aligned-search {
+		justify-content: center;
+		margin-top: 10px;
+	}
+}
+
+@media ( max-width : 1286px) {
+	.sidebar.closed ~ .container-fluid {
+		margin-left: 0%;
+	}
+	
 }

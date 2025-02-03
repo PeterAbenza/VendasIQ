@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Alternar a classe "active" para nav-links
 	navLinks.forEach(function(navLink) {
-		navLink.addEventListener('click', function(event) {
-			event.preventDefault(); // Prevenir comportamento padrão do link
+		navLink.addEventListener('click', function() {
+
 
 			// Remover a classe "active" de todos os nav-links
 			navLinks.forEach(function(link) {
