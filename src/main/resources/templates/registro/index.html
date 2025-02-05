@@ -1,45 +1,72 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
     <title>Registro</title>
 </head>
 <body>
     <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Registro</h5>
-                        <form th:action="@{/InsertUser}" th:object="${registroUsuario}" method="post">
-                            <div class="form-group">
-                                <label for="name">Nome:</label>
-                                <input type="text" class="form-control" id="name" placeholder="Digite seu nome" th:field="*{nome}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" placeholder="Digite seu email" th:field="*{email}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Senha:</label>
-                                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" th:field="*{senha}" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
-                        </form>
-                        <p class="text-center mt-3">
-                            <a href="/login">Já tem uma conta? Faça login</a>
-                        </p>
-                    </div>
+        <div class="login">
+            <h1>Registro</h1>
+            <form th:action="@{/InsertUser}" th:object="${registroUsuario}" method="post" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" th:field="*{nome}" required>
                 </div>
-            </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" th:field="*{email}" required>
+                    <div id="emailErro" class="text-danger mt-2"></div> <!-- Elemento para a mensagem de erro -->
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" th:field="*{senha}" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme a Senha" required>
+                    <div id="senhaErro" class="text-danger mt-2"></div> <!-- Elemento para a mensagem de erro -->
+                </div>
+                <div class="error" th:if="${message}" th:text="${message}"></div> <!-- Mensagem de erro -->
+                <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+            </form>
+            <p class="text-center mt-3">
+                <a href="/login">Já tem uma conta? Faça login</a>
+            </p>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function validateEmail(email) {
+            var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var validDomains = ["gmail.com", "hotmail.com"];
+            var emailDomain = email.split('@')[1];
+            return re.test(email) && validDomains.includes(emailDomain);
+        }
+
+        function validateForm() {
+            var senha = document.getElementById("senha").value;
+            var confirmarSenha = document.getElementById("confirmarSenha").value;
+            var senhaErro = document.getElementById("senhaErro");
+            var email = document.getElementById("email").value;
+            var emailErro = document.getElementById("emailErro");
+            
+            if (senha !== confirmarSenha) {
+                senhaErro.textContent = "As senhas não coincidem. Por favor, tente novamente.";
+                return false;
+            }
+            senhaErro.textContent = "";
+
+            if (!validateEmail(email)) {
+                emailErro.textContent = "O email deve ser dos domínios gmail.com ou hotmail.com.";
+                return false;
+            }
+            emailErro.textContent = "";
+            
+            return true;
+        }
+    </script>
 </body>
 </html>
