@@ -22,8 +22,6 @@
 			<li class="nav-item"><a class="nav-link active" href="#"><i
 					class="fas fa-home"></i><span>Dashboard</span></a></li>
 			<li class="nav-item"><a class="nav-link" href="#"><i
-					class="fas fa-user"></i><span>Profile</span></a></li>
-			<li class="nav-item"><a class="nav-link" href="#"><i
 					class="fas fa-box"></i><span>Product</span></a></li>
 			<li class="nav-item"><a class="nav-link" href="#"><i
 					class="fas fa-history"></i><span>History</span></a></li>
@@ -31,6 +29,8 @@
 					class="fas fa-sign-in-alt"></i><span>Login</span></a></li>
 			<li class="nav-item"><a class="nav-link lg" href="/registro"><i
 					class="fas fa-user-plus"></i><span>Sign Up</span></a></li>
+			<li class="nav-item profile" th:if="${username}"><a class="nav-link"><i
+					class="fas fa-user"></i><span th:text="${username}"></span></a></li>
 		</ul>
 	</div>
 
